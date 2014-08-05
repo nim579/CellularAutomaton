@@ -1,4 +1,4 @@
-cellular_automaton
-==================
+CellularAutomaton.js
+====================
 
 Platform for making cellular automaton games

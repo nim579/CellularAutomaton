@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Cellular automation</title>
+        <link rel="stylesheet" type="text/css" href="./CellularAutomaton.css">
+
+        <script type="text/javascript" src="./libs/jquery.js"></script>
+        <script type="text/javascript" src="./libs/underscore.js"></script>
+        <script type="text/javascript" src="./libs/backbone.js"></script>
+
+        <script type="text/javascript" src="./CellularAutomaton.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                window.app = new CellularAutomaton.Model({rules: function (index, state, neighbors){
+                        aliveNeighbors = _.reduce(neighbors, function(memo, cell){
+                            return memo + cell
+                        }, 0)
+
+                        if(state === 0 && aliveNeighbors === 3) return 1;
+
+                        if(state === 1 && !(aliveNeighbors === 3 || aliveNeighbors === 2)) return 0;
+
+                        return null;
+                    }
+                });
+                window.appView = new CellularAutomaton.View({model: window.app, el: '.jsContent'});
+            });
+        </script>
+
+    </head>
+    <body class="jsContent">
+        <a href="#" class="jsRun">Run</a> <a href="#" class="jsPause">Pause</a> <a href="#" class="jsStop">Stop</a> <a href="#" class="jsTick">Tick</a>
+        <div class="jsField"></div>
+    </body>
+</html>

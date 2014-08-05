@@ -1,0 +1,34 @@
+html, body {
+	padding: 0;
+	margin: 0;
+}
+
+.ca-table {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	border-collapse: collapse;
+    border-spacing: 0;
+}
+.ca-table td {
+	padding: 0px;
+}
+
+.ca-cell {
+	content: "";
+	display: block;
+	width: 10px;
+	height: 10px;
+	margin: 1px 1px 0 0;
+	border-radius: 20%;
+	border: 0px solid #aaa;
+	cursor: pointer;
+}
+
+.ca-cell.ca-state_0 {
+	background-color: #ddd;
+}
+
+.ca-cell.ca-state_1 {
+	background-color: #99f;
+}
